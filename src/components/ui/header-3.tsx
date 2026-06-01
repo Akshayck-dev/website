@@ -39,9 +39,8 @@ export function Header() {
           'fixed top-0 z-[60] w-full transition-all duration-500',
           open || !scrolled
             ? 'bg-transparent border-transparent shadow-none'
-            : 'border-b border-gold/20 backdrop-blur-xl shadow-lg'
+            : 'bg-black/40 backdrop-blur-md border-b border-white/10 shadow-lg'
         )}
-        style={!open && scrolled ? { backgroundColor: 'rgba(0, 0, 0, 0.85)', boxShadow: '0 1px 30px rgba(0,0,0,0.8)' } : {}}
       >
         <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-12">
           {/* Logo */}
