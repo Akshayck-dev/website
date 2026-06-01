@@ -1,33 +1,9 @@
 'use client';
 import React from 'react';
 import { cn } from '@/lib/utils';
-import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail } from 'lucide-react';
-
-const IconInstagram = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-5">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-    <circle cx="12" cy="12" r="4"/>
-    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
-  </svg>
-);
-
-const IconLinkedin = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-5">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-    <rect x="2" y="9" width="4" height="12"/>
-    <circle cx="4" cy="4" r="2"/>
-  </svg>
-);
-
-const IconTwitter = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-5">
-    <path d="M4 4l16 16M4 20L20 4"/>
-  </svg>
-);
 import logo from '../../assets/logo.png';
 
 const NAV_LINKS = [
@@ -39,16 +15,18 @@ const NAV_LINKS = [
   { label: 'Technologies', href: '#' },
 ];
 
+const STATS = [
+  { value: '200+', label: 'Projects launched successfully across the globe' },
+  { value: '50M+', label: 'Daily customer engagement through our projects' },
+  { value: '100+', label: 'Digital transformation stories that made a difference' },
+];
+
 export function Header() {
   const [open, setOpen] = React.useState(false);
   const scrolled = useScroll(10);
   const location = useLocation();
 
-  // Close menu on route change
-  React.useEffect(() => {
-    setOpen(false);
-  }, [location.pathname]);
-
+  React.useEffect(() => { setOpen(false); }, [location.pathname]);
   React.useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
@@ -87,19 +65,13 @@ export function Header() {
               >
                 {NAV_LINKS.map((link) =>
                   link.href.startsWith('/') ? (
-                    <Link
-                      key={link.label}
-                      to={link.href}
-                      className="px-4 py-2 text-base font-medium text-snow/70 hover:text-gold transition-colors duration-200"
-                    >
+                    <Link key={link.label} to={link.href}
+                      className="px-4 py-2 text-base font-medium text-snow/60 hover:text-gold transition-colors duration-200">
                       {link.label}
                     </Link>
                   ) : (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      className="px-4 py-2 text-base font-medium text-snow/70 hover:text-gold transition-colors duration-200"
-                    >
+                    <a key={link.label} href={link.href}
+                      className="px-4 py-2 text-base font-medium text-snow/60 hover:text-gold transition-colors duration-200">
                       {link.label}
                     </a>
                   )
@@ -108,203 +80,159 @@ export function Header() {
             )}
           </AnimatePresence>
 
-          {/* Right side: phone + menu toggle */}
-          <div className="flex items-center gap-4 relative z-[60]">
-            <a
-              href="tel:+1234567890"
-              className={cn(
-                'hidden md:flex items-center gap-2 text-sm font-medium transition-colors duration-300',
-                open ? 'text-snow/40 hover:text-snow' : 'text-snow/60 hover:text-gold'
-              )}
-            >
-              <Phone className="size-4" />
-              <span>Let&apos;s Talk</span>
-            </a>
-
-            <button
-              onClick={() => setOpen((v) => !v)}
-              aria-expanded={open}
-              aria-controls="fullscreen-menu"
-              aria-label="Toggle menu"
-              className={cn(
-                'flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 text-sm font-semibold tracking-widest uppercase',
-                open
-                  ? 'border-white/20 bg-white/5 text-snow'
-                  : 'border-white/20 bg-charcoal/40 text-snow hover:border-gold/40 hover:bg-gold/5'
-              )}
-            >
-              <span className="hidden md:block">{open ? 'CLOSE' : 'MENU'}</span>
-              <MenuToggleIcon open={open} className="size-5 text-snow" duration={300} />
-            </button>
-          </div>
+          {/* Menu toggle button */}
+          <button
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label="Toggle menu"
+            className="relative z-[60] flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-charcoal/40 text-snow text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:border-gold/40 hover:bg-gold/5"
+          >
+            <span className="hidden md:block">{open ? 'CLOSE' : 'MENU'}</span>
+            {/* Animated hamburger/X */}
+            <span className="relative w-5 h-5 flex flex-col items-center justify-center gap-[5px]">
+              <span className={cn('block h-[1.5px] w-5 bg-snow transition-all duration-300 origin-center', open ? 'rotate-45 translate-y-[3.5px]' : '')} />
+              <span className={cn('block h-[1.5px] w-5 bg-snow transition-all duration-300', open ? 'opacity-0 scale-x-0' : '')} />
+              <span className={cn('block h-[1.5px] w-5 bg-snow transition-all duration-300 origin-center', open ? '-rotate-45 -translate-y-[3.5px]' : '')} />
+            </span>
+          </button>
         </nav>
       </header>
 
-      {/* Full-Screen Cinematic Overlay */}
       <FullScreenMenu open={open} onClose={() => setOpen(false)} />
     </>
   );
 }
 
-/* ─────────────────────────────────────────── */
-/*  Full-Screen Cinematic Overlay              */
-/* ─────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────── */
+/*  Full-Screen Cinematic Menu                         */
+/* ─────────────────────────────────────────────────── */
 
 const overlayVariants = {
-  closed: { clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.6, ease: [0.76, 0, 0.24, 1] } },
-  open:   { clipPath: 'inset(0 0 0% 0)',   transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] } },
+  closed: { clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.65, ease: [0.76, 0, 0.24, 1] } },
+  open:   { clipPath: 'inset(0 0 0% 0)',   transition: { duration: 0.7,  ease: [0.76, 0, 0.24, 1] } },
 };
 
 const linkVariants = {
-  closed: { y: 80, opacity: 0 },
+  closed: { y: 40, opacity: 0 },
   open: (i: number) => ({
-    y: 0,
-    opacity: 1,
-    transition: { delay: 0.35 + i * 0.08, duration: 0.55, ease: [0.33, 1, 0.68, 1] },
+    y: 0, opacity: 1,
+    transition: { delay: 0.3 + i * 0.07, duration: 0.5, ease: [0.33, 1, 0.68, 1] },
   }),
 };
 
-const fadeIn = {
-  closed: { opacity: 0, y: 12 },
-  open: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: 0.55 + i * 0.06, duration: 0.4, ease: 'easeOut' },
-  }),
+const panelVariants = {
+  closed: { opacity: 0, x: -24 },
+  open: { opacity: 1, x: 0, transition: { delay: 0.35, duration: 0.55, ease: 'easeOut' } },
 };
 
 function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [hovered, setHovered] = React.useState<number | null>(null);
+
   if (typeof window === 'undefined') return null;
 
   return createPortal(
     <AnimatePresence>
       {open && (
         <motion.div
-          id="fullscreen-menu"
           key="fullscreen-menu"
           variants={overlayVariants}
           initial="closed"
           animate="open"
           exit="closed"
-          className="fixed inset-0 z-40 bg-obsidian flex flex-col overflow-hidden"
+          className="fixed inset-0 z-40 overflow-hidden"
+          style={{ background: '#07080e' }}
         >
-          {/* Background decorative gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-gold/5 via-transparent to-blue-900/10 pointer-events-none" />
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/3 rounded-full blur-[120px] pointer-events-none" />
+          {/* Blue glowing orb — bottom right */}
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none"
+            style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.35) 0%, rgba(99,102,241,0.15) 50%, transparent 75%)' }}
+          />
+          {/* Subtle purple top-left glow */}
+          <div className="absolute top-0 left-1/3 w-[400px] h-[300px] rounded-full pointer-events-none opacity-20"
+            style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%)' }}
+          />
 
-          {/* Divider line */}
-          <div className="absolute top-20 left-0 right-0 h-px bg-white/5" />
+          {/* Close button — top right */}
+          <button
+            onClick={onClose}
+            className="absolute top-8 right-8 z-10 flex items-center justify-center w-10 h-10 text-snow/50 hover:text-snow transition-colors duration-200"
+            aria-label="Close menu"
+          >
+            <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5}>
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
 
-          {/* Content: full height, header offset, two columns */}
-          <div className="relative h-full flex flex-col md:flex-row pt-20">
+          {/* Main layout: left panel + right nav */}
+          <div className="h-full flex flex-col md:flex-row">
 
-            {/* Left: Big Nav Links — vertically centered */}
-            <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-12">
-              {NAV_LINKS.map((link, i) =>
-                link.href.startsWith('/') ? (
-                  <motion.div
-                    key={link.label}
-                    custom={i}
-                    variants={linkVariants}
-                    initial="closed"
-                    animate="open"
-                    exit="closed"
-                    className="overflow-hidden border-b border-white/5 last:border-b-0"
-                  >
-                    <Link
-                      to={link.href}
-                      onClick={onClose}
-                      className="group flex items-baseline gap-5 py-4 md:py-5"
-                    >
-                      <span className="text-gold/40 text-xs font-mono tracking-widest group-hover:text-gold transition-colors duration-300 w-6 flex-shrink-0">
-                        0{i + 1}
-                      </span>
-                      <span className="text-3xl md:text-5xl lg:text-6xl font-display text-snow/80 group-hover:text-snow group-hover:italic transition-all duration-300 tracking-tight leading-none">
-                        {link.label}
-                      </span>
-                      <span className="ml-auto text-snow/20 group-hover:text-gold transition-colors duration-300 text-2xl">↗</span>
-                    </Link>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key={link.label}
-                    custom={i}
-                    variants={linkVariants}
-                    initial="closed"
-                    animate="open"
-                    exit="closed"
-                    className="overflow-hidden border-b border-white/5 last:border-b-0"
-                  >
-                    <a href={link.href} onClick={onClose} className="group flex items-baseline gap-5 py-4 md:py-5">
-                      <span className="text-gold/40 text-xs font-mono tracking-widest group-hover:text-gold transition-colors duration-300 w-6 flex-shrink-0">
-                        0{i + 1}
-                      </span>
-                      <span className="text-3xl md:text-5xl lg:text-6xl font-display text-snow/80 group-hover:text-snow group-hover:italic transition-all duration-300 tracking-tight leading-none">
-                        {link.label}
-                      </span>
-                      <span className="ml-auto text-snow/20 group-hover:text-gold transition-colors duration-300 text-2xl">↗</span>
-                    </a>
-                  </motion.div>
-                )
-              )}
-            </div>
-
-            {/* Right: Contact & Socials sidebar — visible on md+, vertically centered */}
-            <div className="hidden md:flex flex-col justify-center gap-10 w-[280px] lg:w-[320px] px-8 lg:px-12 border-l border-white/5 flex-shrink-0">
-              <motion.div custom={0} variants={fadeIn} initial="closed" animate="open" exit="closed" className="flex flex-col gap-4">
-                <p className="text-gold/60 text-xs tracking-[0.25em] uppercase font-medium">Contact</p>
-                <a href="mailto:hello@webapporbis.com" className="flex items-center gap-2 text-snow/60 hover:text-gold transition-colors text-sm">
-                  <Mail className="size-4 flex-shrink-0" />
-                  hello@webapporbis.com
-                </a>
-                <a href="tel:+1234567890" className="flex items-center gap-2 text-snow/60 hover:text-gold transition-colors text-sm">
-                  <Phone className="size-4 flex-shrink-0" />
-                  +1 (234) 567-890
-                </a>
-              </motion.div>
-
-              <motion.div custom={1} variants={fadeIn} initial="closed" animate="open" exit="closed" className="flex flex-col gap-4">
-                <p className="text-gold/60 text-xs tracking-[0.25em] uppercase font-medium">Follow Us</p>
-                <div className="flex items-center gap-4">
-                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconInstagram /></a>
-                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconLinkedin /></a>
-                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconTwitter /></a>
-                </div>
-              </motion.div>
-
-              <motion.div custom={2} variants={fadeIn} initial="closed" animate="open" exit="closed">
-                <Link
-                  to="/contact"
-                  onClick={onClose}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold/40 text-gold text-sm font-medium hover:bg-gold hover:text-obsidian transition-all duration-300"
-                >
-                  Start a Project →
-                </Link>
-              </motion.div>
-            </div>
-
-            {/* Mobile: Bottom bar */}
+            {/* ── Left Panel: Impact story + stats ── */}
             <motion.div
-              custom={6}
-              variants={fadeIn}
+              variants={panelVariants}
               initial="closed"
               animate="open"
               exit="closed"
-              className="flex md:hidden items-center justify-between px-8 py-6 border-t border-white/10 flex-shrink-0"
+              className="flex-1 flex flex-col justify-center px-10 md:px-16 lg:px-20 pt-24 md:pt-0 pb-16 md:pb-0"
             >
-              <div className="flex items-center gap-5">
-                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconInstagram /></a>
-                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconLinkedin /></a>
-                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconTwitter /></a>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-display text-snow leading-tight mb-6">
+                Our Impact
+              </h2>
+              <p className="text-snow/40 text-sm md:text-base leading-relaxed max-w-sm mb-12">
+                Every innovation that happens here is out of a quest to get better at what we are already doing. We deliver ideas that make a difference, create experiences that transform lives and build ecosystems that foster progress.
+              </p>
+
+              {/* Stats */}
+              <div className="flex flex-wrap gap-10 mb-12">
+                {STATS.map((stat) => (
+                  <div key={stat.value} className="flex flex-col gap-1">
+                    <span className="text-3xl md:text-4xl font-display text-snow">{stat.value}</span>
+                    <span className="text-snow/40 text-xs leading-snug max-w-[140px]">{stat.label}</span>
+                  </div>
+                ))}
               </div>
+
+              {/* CTA */}
               <Link
-                to="/contact"
+                to="/about"
                 onClick={onClose}
-                className="px-5 py-2 rounded-full border border-gold/40 text-gold text-sm font-medium hover:bg-gold hover:text-obsidian transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-snow/30 text-snow text-sm font-medium hover:border-snow hover:bg-white/5 transition-all duration-300 w-fit"
               >
-                Let&apos;s Talk
+                Our Impact <span className="text-lg">›</span>
               </Link>
             </motion.div>
+
+            {/* ── Right Panel: Nav links ── */}
+            <div className="flex flex-col justify-center px-10 md:px-16 lg:px-20 pt-4 md:pt-0 pb-16 md:pb-0 gap-1 md:gap-2 md:min-w-[380px] lg:min-w-[440px]">
+              {NAV_LINKS.map((link, i) => {
+                const isActive = hovered === null ? i === 0 : hovered === i;
+                const content = (
+                  <motion.div
+                    key={link.label}
+                    custom={i}
+                    variants={linkVariants}
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    onMouseEnter={() => setHovered(i)}
+                    onMouseLeave={() => setHovered(null)}
+                    className="overflow-hidden"
+                  >
+                    <span className={cn(
+                      'block text-4xl md:text-5xl lg:text-6xl font-display leading-tight py-1 md:py-2 transition-colors duration-300 cursor-pointer',
+                      isActive ? 'text-snow' : 'text-snow/25'
+                    )}>
+                      {link.label}
+                    </span>
+                  </motion.div>
+                );
+
+                return link.href.startsWith('/') ? (
+                  <Link key={link.label} to={link.href} onClick={onClose}>{content}</Link>
+                ) : (
+                  <a key={link.label} href={link.href} onClick={onClose}>{content}</a>
+                );
+              })}
+            </div>
+
           </div>
         </motion.div>
       )}
@@ -313,9 +241,9 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
   );
 }
 
-/* ─────────────────────────────────────────── */
-/*  useScroll hook                             */
-/* ─────────────────────────────────────────── */
+/* ─────────────────────────────────────── */
+/*  useScroll hook                         */
+/* ─────────────────────────────────────── */
 
 function useScroll(threshold: number) {
   const [scrolled, setScrolled] = React.useState(false);
