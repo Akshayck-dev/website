@@ -60,7 +60,6 @@ export function ClientFeedback() {
         {/* Column 1 */}
         <div className="md:flex lg:flex-col lg:space-y-4 h-full lg:gap-0 gap-4">
           <TimelineContent animationNum={2} className="lg:flex-[7] flex-[6] flex flex-col justify-between relative bg-charcoal text-snow overflow-hidden rounded-2xl border border-white/10 p-8 shadow-xl">
-            <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:50px_56px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
             <article className="mt-auto relative z-10">
               <p className="text-lg leading-relaxed font-light mb-8">
                 "Hypersphere has been a game-changer for us. Their service is
@@ -191,7 +190,6 @@ export function ClientFeedback() {
           </TimelineContent>
           
           <TimelineContent animationNum={8} className="lg:flex-[7] flex-[6] flex flex-col justify-between relative bg-charcoal text-snow overflow-hidden rounded-2xl border border-white/10 p-8 shadow-xl">
-            <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:50px_56px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
             <article className="mt-auto relative z-10">
               <p className="text-lg leading-relaxed font-light mb-8">
                 "Hypersphere has been a true game-changer for us. Their
