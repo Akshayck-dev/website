@@ -53,33 +53,6 @@ export function Header() {
             <img src={logo} alt="WebApp Orbis Logo" className="h-16 w-auto object-contain drop-shadow-lg" />
           </Link>
 
-          {/* Desktop Nav Links (hidden when menu is open) */}
-          <AnimatePresence>
-            {!open && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
-                className="hidden md:flex items-center gap-1"
-              >
-                {NAV_LINKS.map((link) =>
-                  link.href.startsWith('/') ? (
-                    <Link key={link.label} to={link.href}
-                      className="px-4 py-2 text-base font-medium text-snow/60 hover:text-gold transition-colors duration-200">
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a key={link.label} href={link.href}
-                      className="px-4 py-2 text-base font-medium text-snow/60 hover:text-gold transition-colors duration-200">
-                      {link.label}
-                    </a>
-                  )
-                )}
-              </motion.div>
-            )}
-          </AnimatePresence>
-
           {/* Menu toggle button */}
           <button
             onClick={() => setOpen((v) => !v)}
