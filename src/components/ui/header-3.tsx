@@ -150,17 +150,6 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
             style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%)' }}
           />
 
-          {/* Close button — top right */}
-          <button
-            onClick={onClose}
-            className="absolute top-8 right-8 z-10 flex items-center justify-center w-10 h-10 text-snow/50 hover:text-snow transition-colors duration-200"
-            aria-label="Close menu"
-          >
-            <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5}>
-              <path d="M18 6L6 18M6 6l12 12" />
-            </svg>
-          </button>
-
           {/* Main layout: left panel + right nav */}
           <div className="h-full flex flex-col md:flex-row">
 
