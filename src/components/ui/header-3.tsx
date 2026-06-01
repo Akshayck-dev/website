@@ -11,6 +11,8 @@ import {
 	NavigationMenuList,
 } from '@/components/ui/navigation-menu';
 import { Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.jpeg';
 
 export function Header() {
 	const [open, setOpen] = React.useState(false);
@@ -36,25 +38,28 @@ export function Header() {
 		>
 			<nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-12">
 				<div className="flex items-center gap-8">
-					<a href="#" className="hover:bg-accent/50 rounded-md p-2 transition-colors flex items-center gap-2 font-display text-2xl tracking-tight group">
-						<span className="text-blue-500 font-bold group-hover:text-blue-400 transition-colors">WebApp</span>
-						<span className="text-snow group-hover:text-white transition-colors">Orbis</span>
-					</a>
+					<Link to="/" className="hover:bg-accent/50 rounded-md p-2 transition-colors flex items-center gap-2 font-display text-2xl tracking-tight group">
+						<img src={logo} alt="WebApp Orbis Logo" className="h-12 w-auto" />
+						<div className="flex flex-col leading-none">
+							<span className="text-blue-500 font-bold group-hover:text-blue-400 transition-colors">WebApp</span>
+							<span className="text-snow group-hover:text-white transition-colors text-lg">Orbis</span>
+						</div>
+					</Link>
 					<NavigationMenu className="hidden md:flex">
 						<NavigationMenuList>
 							<NavigationMenuItem>
 								<NavigationMenuLink className="px-4" asChild>
-									<a href="#" className="text-lg font-medium hover:text-gold transition-colors p-2">Services</a>
+									<Link to="/about" className="text-lg font-medium hover:text-gold transition-colors p-2">About</Link>
+								</NavigationMenuLink>
+							</NavigationMenuItem>
+							<NavigationMenuItem>
+								<NavigationMenuLink className="px-4" asChild>
+									<Link to="/services" className="text-lg font-medium hover:text-gold transition-colors p-2">Services</Link>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
 								<NavigationMenuLink className="px-4" asChild>
 									<a href="#" className="text-lg font-medium hover:text-gold transition-colors p-2">Our Works</a>
-								</NavigationMenuLink>
-							</NavigationMenuItem>
-							<NavigationMenuItem>
-								<NavigationMenuLink className="px-4" asChild>
-									<a href="#" className="text-lg font-medium hover:text-gold transition-colors p-2">Industries</a>
 								</NavigationMenuLink>
 							</NavigationMenuItem>
 							<NavigationMenuItem>
@@ -95,9 +100,9 @@ export function Header() {
 			<MobileMenu open={open} className="flex flex-col justify-between gap-2 overflow-y-auto pt-8">
 				<NavigationMenu className="max-w-full items-start justify-start flex-col">
 					<div className="flex w-full flex-col gap-y-4 px-2">
-						<a href="#" className="text-xl font-medium text-snow hover:text-gold py-2 transition-colors">Services</a>
+						<Link to="/about" className="text-xl font-medium text-snow hover:text-gold py-2 transition-colors" onClick={() => setOpen(false)}>About</Link>
+						<Link to="/services" className="text-xl font-medium text-snow hover:text-gold py-2 transition-colors" onClick={() => setOpen(false)}>Services</Link>
 						<a href="#" className="text-xl font-medium text-snow hover:text-gold py-2 transition-colors">Our Works</a>
-						<a href="#" className="text-xl font-medium text-snow hover:text-gold py-2 transition-colors">Industries</a>
 						<a href="#" className="text-xl font-medium text-snow hover:text-gold py-2 transition-colors">Solutions</a>
 						<a href="#" className="text-xl font-medium text-snow hover:text-gold py-2 transition-colors">Career</a>
 						<a href="#" className="text-xl font-medium text-snow hover:text-gold py-2 transition-colors">Technologies</a>

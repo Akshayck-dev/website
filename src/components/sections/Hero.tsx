@@ -1,9 +1,10 @@
 import { SparklesCore } from '../ui/sparkles'
 import { Button } from '../ui/button'
+import { SplitText } from '../ui/SplitText'
 
 export function Hero() {
   return (
-    <section id="home" className="relative w-full min-h-screen bg-obsidian flex flex-col items-center justify-center overflow-hidden pt-20">
+    <section id="home" className="relative w-full min-h-screen bg-obsidian flex flex-col items-center overflow-hidden pt-24">
       <div className="w-full absolute inset-0 h-full">
         <SparklesCore
           id="tsparticlesfullpage"
@@ -18,21 +19,24 @@ export function Hero() {
       </div>
       
       {/* Content */}
-      <div className="relative z-20 max-w-5xl mx-auto px-6 text-center space-y-8 flex flex-col items-center">
+      <div className="relative z-20 max-w-5xl mx-auto px-6 text-center space-y-6 flex flex-col items-center my-auto">
         
-        <div className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-sm font-medium text-gold mb-4 shadow-[0_0_15px_rgba(255,215,0,0.1)] backdrop-blur-sm">
-          <span className="flex h-2 w-2 rounded-full bg-gold mr-2 animate-pulse"></span>
-          For Modern Businesses
+        <SplitText
+          text="Build Smarter Digital Experiences."
+          className="md:text-7xl text-5xl lg:text-8xl font-bold text-snow tracking-tight leading-tight"
+          delay={50}
+          duration={1}
+          tag="h1"
+        />
+        
+        <div className="space-y-4 mt-4">
+          <p className="text-mist md:text-lg text-base max-w-3xl mx-auto leading-relaxed">
+            Transform your business with professional website designing and development, mobile app development, and customised ERP solutions tailored to your operational needs. We create modern digital platforms that improve customer engagement, streamline business processes, and support long-term growth.
+          </p>
+          <p className="text-mist md:text-lg text-base max-w-3xl mx-auto leading-relaxed">
+            From responsive business websites to advanced enterprise systems, our solutions are designed to deliver performance, functionality, and seamless user experiences across every device.
+          </p>
         </div>
-
-        <h1 className="md:text-7xl text-5xl lg:text-8xl font-bold text-snow tracking-tight leading-tight">
-          Build Smarter, <br className="hidden md:block" />
-          <span className="text-gold">Digital Experiences.</span>
-        </h1>
-        
-        <p className="text-mist md:text-xl text-lg max-w-3xl mx-auto leading-relaxed mt-6">
-          Transform your business with professional website designing and development, mobile app development, and customised ERP solutions tailored to your operational needs. We create modern digital platforms that improve customer engagement, streamline business processes, and support long-term growth.
-        </p>
 
         <div className="flex flex-col sm:flex-row gap-4 pt-10">
             <Button className="bg-snow text-obsidian hover:bg-gold hover:text-obsidian rounded-full px-8 py-6 text-lg transition-colors font-medium">

@@ -6,6 +6,7 @@ import { navLinks } from '../../data/content'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 import { MagneticButton } from '../ui/MagneticButton'
 import { AntiGravityCanvas, ParticleMenuContent } from '../ui/particle-menu'
+import logo from '../../assets/logo.jpeg'
 
 export function Navbar() {
   const scrolled = useScrollPosition(50)
@@ -27,8 +28,11 @@ export function Navbar() {
             className="font-display text-2xl md:text-3xl tracking-tight transition-colors duration-300 flex items-center gap-2 group"
             onClick={() => setMenuOpen(false)}
           >
-            <span className="text-blue-500 font-bold group-hover:text-blue-400 transition-colors">WebApp</span>
-            <span className="text-snow group-hover:text-white transition-colors">Orbis</span>
+            <img src={logo} alt="WebApp Orbis Logo" className="h-12 w-auto" />
+            <div className="flex flex-col leading-none">
+              <span className="text-blue-500 font-bold group-hover:text-blue-400 transition-colors">WebApp</span>
+              <span className="text-snow group-hover:text-white transition-colors text-lg">Orbis</span>
+            </div>
           </a>
 
           {/* Desktop Links (Hidden when menu is open) */}

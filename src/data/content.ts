@@ -78,7 +78,7 @@ export const services = [
     id: 'web-design',
     title: 'Website Designing & Development',
     description:
-      'We create professional websites that combine modern design with advanced functionality. Fast performance, responsive layouts, and seamless user experiences.',
+      'We create professional websites that combine modern design with advanced functionality. Our websites are developed to deliver fast performance, responsive layouts, and seamless user experiences across desktops, tablets, and mobile devices.',
     icon: 'Compass' as const,
     span: 'col-span-1 md:col-span-2 row-span-1',
     featured: true,
@@ -87,7 +87,7 @@ export const services = [
     id: 'mobile-app',
     title: 'Mobile App Development',
     description:
-      'We develop customised mobile applications designed to improve customer accessibility and business operations with intuitive interfaces.',
+      'We develop customised mobile applications designed to improve customer accessibility and business operations. Our applications are built with modern technologies to ensure smooth performance, security, and scalability.',
     icon: 'Layers' as const,
     span: 'col-span-1 row-span-1',
     featured: false,
@@ -96,7 +96,7 @@ export const services = [
     id: 'erp-software',
     title: 'ERP Software Development',
     description:
-      'Our ERP solutions simplify and automate business operations through integrated management systems tailored to your business structure.',
+      'Our ERP solutions are designed to simplify and automate business operations through integrated management systems. We develop customised ERP software that improves productivity, workflow efficiency, and data management across departments.',
     icon: 'Film' as const,
     span: 'col-span-1 row-span-1',
     featured: false,
@@ -105,7 +105,7 @@ export const services = [
     id: 'custom-digital',
     title: 'Custom Digital Solutions',
     description:
-      'We provide customised digital solutions tailored to unique business requirements. Scalable platforms that support operational growth and digital transformation.',
+      'In addition to our core services, we provide customised digital solutions tailored to unique business requirements. We work closely with businesses to develop scalable platforms that support operational growth and digital transformation.',
     icon: 'TrendingUp' as const,
     span: 'col-span-1 md:col-span-2 row-span-1',
     featured: true,
@@ -118,28 +118,28 @@ export const serviceCarouselSteps = [
     name: 'Web Design',
     title: 'Website Designing & Development',
     description:
-      'Your website is often the first impression of your business. We design and develop visually appealing, fast-loading, and mobile-friendly websites.',
+      'Your website is often the first impression of your business. We design and develop visually appealing, fast-loading, and mobile-friendly websites that reflect your brand identity while delivering a smooth browsing experience. Our websites are built with user engagement, search visibility, and conversion-focused layouts in mind.',
   },
   {
     id: '2',
     name: 'Mobile Apps',
     title: 'Mobile App Development',
     description:
-      'Bring your business closer to your customers with innovative mobile applications designed for Android and iOS platforms.',
+      'Bring your business closer to your customers with innovative mobile applications designed for Android and iOS platforms. Our app development services focus on intuitive user interfaces, seamless functionality, and reliable performance.',
   },
   {
     id: '3',
     name: 'ERP Solutions',
     title: 'ERP Software Solutions',
     description:
-      'Simplify business operations with intelligent ERP systems designed to improve productivity and workflow management.',
+      'Simplify business operations with intelligent ERP systems designed to improve productivity and workflow management. Our ERP solutions integrate multiple business functions into one efficient platform.',
   },
   {
     id: '4',
     name: 'Custom',
     title: 'Custom Digital Solutions',
     description:
-      'We are committed to providing innovative digital services that combine functionality, design quality, and long-term performance.',
+      'We are committed to providing innovative digital services that combine functionality, design quality, and long-term performance. We deliver solutions designed to support your business success.',
   },
 ] as const
 
@@ -358,8 +358,8 @@ export const aboutParallaxSections = [
     heading: 'Professional digital solutions company.',
     contentTitle: 'Helping businesses establish a strong digital presence',
     paragraphs: [
-      'We are a professional digital solutions company specialising in website designing and development, mobile app development, and customised ERP software solutions.',
-      'With a dedicated team of designers, developers, and technology experts, we create modern platforms that combine functionality, creativity, and performance.',
+      'We are a professional digital solutions company specialising in website designing and development, mobile app development, and customised ERP software solutions. Our focus is on helping businesses establish a strong digital presence while improving operational efficiency through innovative technology solutions.',
+      'With a dedicated team of designers, developers, and technology experts, we create modern platforms that combine functionality, creativity, and performance. Our approach is centred around understanding business objectives and delivering solutions tailored to specific operational requirements.',
     ],
     ctaLabel: 'Our services',
     ctaHref: '#services',
@@ -372,7 +372,7 @@ export const aboutParallaxSections = [
     contentTitle: 'High-quality digital solutions',
     paragraphs: [
       'Our vision is to empower businesses with reliable digital technologies that improve customer engagement, simplify operations, and support long-term business growth.',
-      'Our mission is to provide high-quality digital solutions through innovative design, advanced development practices, and customer-focused strategies.',
+      'Our mission is to provide high-quality digital solutions through innovative design, advanced development practices, and customer-focused strategies. We aim to help businesses adapt to the evolving digital landscape with scalable and efficient technology services.',
     ],
     ctaLabel: 'View our process',
     ctaHref: '#process',
@@ -384,7 +384,7 @@ export const aboutParallaxSections = [
     heading: 'Unique digital solutions.',
     contentTitle: 'Collaborative process for high-quality delivery',
     paragraphs: [
-      'We believe every business requires unique digital solutions. Our team works closely with clients to understand their goals, industry requirements, and operational challenges.',
+      'We believe every business requires unique digital solutions. Our team works closely with clients to understand their goals, industry requirements, and operational challenges before creating customised strategies and technology platforms.',
       'From planning and design to development and deployment, we maintain a transparent and collaborative process to ensure high-quality project delivery.',
     ],
     ctaLabel: 'See our work',
