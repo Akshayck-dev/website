@@ -36,9 +36,12 @@ export function Header() {
     <>
       <header
         className={cn(
-          'fixed top-0 z-[60] w-full border-b border-white/5 transition-all duration-500 bg-obsidian/90 backdrop-blur-xl shadow-lg',
-          { 'bg-transparent border-transparent shadow-none': open }
+          'fixed top-0 z-[60] w-full transition-all duration-500',
+          open
+            ? 'bg-transparent border-transparent'
+            : 'border-b border-white/10 shadow-md backdrop-blur-xl'
         )}
+        style={!open ? { backgroundColor: 'rgba(6, 7, 12, 0.95)' } : {}}
       >
         <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-12">
           {/* Logo */}
