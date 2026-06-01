@@ -1,7 +1,7 @@
 import { Header } from '@/components/ui/header-3'
 import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/sections/Hero'
-import { TrustedBy } from '@/components/sections/TrustedBy'
+
 import { ParallaxAbout } from '@/components/sections/ParallaxAbout'
 import { Services } from '@/components/sections/Services'
 import { Process } from '@/components/sections/Process'
@@ -20,8 +20,6 @@ function App() {
         {/* 1. Entry — sparkles hero + stats */}
         <Hero />
 
-        {/* 2. Social proof — logo marquee */}
-        <TrustedBy />
 
         {/* 3. Story — editorial parallax scroll */}
         <ParallaxAbout />
