@@ -85,14 +85,13 @@ export function Header() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Toggle menu"
-            className="relative z-[60] flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-charcoal/40 text-snow text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:border-gold/40 hover:bg-gold/5"
+            className="relative z-[60] flex items-center justify-center w-10 h-10 text-snow"
           >
-            <span className="hidden md:block">{open ? 'CLOSE' : 'MENU'}</span>
             {/* Animated hamburger/X */}
-            <span className="relative w-5 h-5 flex flex-col items-center justify-center gap-[5px]">
-              <span className={cn('block h-[1.5px] w-5 bg-snow transition-all duration-300 origin-center', open ? 'rotate-45 translate-y-[3.5px]' : '')} />
-              <span className={cn('block h-[1.5px] w-5 bg-snow transition-all duration-300', open ? 'opacity-0 scale-x-0' : '')} />
-              <span className={cn('block h-[1.5px] w-5 bg-snow transition-all duration-300 origin-center', open ? '-rotate-45 -translate-y-[3.5px]' : '')} />
+            <span className="relative w-6 h-6 flex flex-col items-center justify-center gap-[5px]">
+              <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300 origin-center', open ? 'rotate-45 translate-y-[3.5px]' : '')} />
+              <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300', open ? 'opacity-0 scale-x-0' : '')} />
+              <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300 origin-center', open ? '-rotate-45 -translate-y-[3.5px]' : '')} />
             </span>
           </button>
         </nav>
