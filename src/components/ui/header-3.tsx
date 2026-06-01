@@ -195,11 +195,11 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
           {/* Divider line */}
           <div className="absolute top-20 left-0 right-0 h-px bg-white/5" />
 
-          {/* Content */}
-          <div className="relative flex-1 flex flex-col md:flex-row gap-0 pt-24 px-8 md:px-16 lg:px-24 pb-8 md:pb-16 overflow-auto">
+          {/* Content: full height, header offset, two columns */}
+          <div className="relative h-full flex flex-col md:flex-row pt-20">
 
-            {/* Left: Big Nav Links */}
-            <div className="flex-1 flex flex-col justify-center gap-2 md:gap-0">
+            {/* Left: Big Nav Links — vertically centered */}
+            <div className="flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-12">
               {NAV_LINKS.map((link, i) =>
                 link.href.startsWith('/') ? (
                   <motion.div
@@ -209,22 +209,20 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
                     initial="closed"
                     animate="open"
                     exit="closed"
-                    className="overflow-hidden"
+                    className="overflow-hidden border-b border-white/5 last:border-b-0"
                   >
                     <Link
                       to={link.href}
                       onClick={onClose}
-                      className="group block py-3 md:py-4"
+                      className="group flex items-baseline gap-5 py-4 md:py-5"
                     >
-                      <span className="flex items-baseline gap-4">
-                        <span className="text-gold/40 text-sm font-mono tracking-widest group-hover:text-gold transition-colors duration-300">
-                          0{i + 1}
-                        </span>
-                        <span className="text-4xl md:text-6xl lg:text-7xl font-display text-snow/80 group-hover:text-snow transition-colors duration-300 tracking-tight leading-none group-hover:italic">
-                          {link.label}
-                        </span>
+                      <span className="text-gold/40 text-xs font-mono tracking-widest group-hover:text-gold transition-colors duration-300 w-6 flex-shrink-0">
+                        0{i + 1}
                       </span>
-                      <div className="h-px w-0 group-hover:w-full bg-gold/30 transition-all duration-500 mt-2" />
+                      <span className="text-3xl md:text-5xl lg:text-6xl font-display text-snow/80 group-hover:text-snow group-hover:italic transition-all duration-300 tracking-tight leading-none">
+                        {link.label}
+                      </span>
+                      <span className="ml-auto text-snow/20 group-hover:text-gold transition-colors duration-300 text-2xl">↗</span>
                     </Link>
                   </motion.div>
                 ) : (
@@ -235,39 +233,37 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
                     initial="closed"
                     animate="open"
                     exit="closed"
-                    className="overflow-hidden"
+                    className="overflow-hidden border-b border-white/5 last:border-b-0"
                   >
-                    <a href={link.href} onClick={onClose} className="group block py-3 md:py-4">
-                      <span className="flex items-baseline gap-4">
-                        <span className="text-gold/40 text-sm font-mono tracking-widest group-hover:text-gold transition-colors duration-300">
-                          0{i + 1}
-                        </span>
-                        <span className="text-4xl md:text-6xl lg:text-7xl font-display text-snow/80 group-hover:text-snow transition-colors duration-300 tracking-tight leading-none group-hover:italic">
-                          {link.label}
-                        </span>
+                    <a href={link.href} onClick={onClose} className="group flex items-baseline gap-5 py-4 md:py-5">
+                      <span className="text-gold/40 text-xs font-mono tracking-widest group-hover:text-gold transition-colors duration-300 w-6 flex-shrink-0">
+                        0{i + 1}
                       </span>
-                      <div className="h-px w-0 group-hover:w-full bg-gold/30 transition-all duration-500 mt-2" />
+                      <span className="text-3xl md:text-5xl lg:text-6xl font-display text-snow/80 group-hover:text-snow group-hover:italic transition-all duration-300 tracking-tight leading-none">
+                        {link.label}
+                      </span>
+                      <span className="ml-auto text-snow/20 group-hover:text-gold transition-colors duration-300 text-2xl">↗</span>
                     </a>
                   </motion.div>
                 )
               )}
             </div>
 
-            {/* Right: Contact & Socials (visible on md+) */}
-            <div className="hidden md:flex flex-col justify-end gap-10 min-w-[260px] pb-4">
-              <motion.div custom={0} variants={fadeIn} initial="closed" animate="open" exit="closed" className="flex flex-col gap-3">
+            {/* Right: Contact & Socials sidebar — visible on md+, vertically centered */}
+            <div className="hidden md:flex flex-col justify-center gap-10 w-[280px] lg:w-[320px] px-8 lg:px-12 border-l border-white/5 flex-shrink-0">
+              <motion.div custom={0} variants={fadeIn} initial="closed" animate="open" exit="closed" className="flex flex-col gap-4">
                 <p className="text-gold/60 text-xs tracking-[0.25em] uppercase font-medium">Contact</p>
                 <a href="mailto:hello@webapporbis.com" className="flex items-center gap-2 text-snow/60 hover:text-gold transition-colors text-sm">
-                  <Mail className="size-4" />
+                  <Mail className="size-4 flex-shrink-0" />
                   hello@webapporbis.com
                 </a>
                 <a href="tel:+1234567890" className="flex items-center gap-2 text-snow/60 hover:text-gold transition-colors text-sm">
-                  <Phone className="size-4" />
+                  <Phone className="size-4 flex-shrink-0" />
                   +1 (234) 567-890
                 </a>
               </motion.div>
 
-              <motion.div custom={1} variants={fadeIn} initial="closed" animate="open" exit="closed" className="flex flex-col gap-3">
+              <motion.div custom={1} variants={fadeIn} initial="closed" animate="open" exit="closed" className="flex flex-col gap-4">
                 <p className="text-gold/60 text-xs tracking-[0.25em] uppercase font-medium">Follow Us</p>
                 <div className="flex items-center gap-4">
                   <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconInstagram /></a>
@@ -287,14 +283,14 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
               </motion.div>
             </div>
 
-            {/* Mobile: Bottom row socials */}
+            {/* Mobile: Bottom bar */}
             <motion.div
               custom={6}
               variants={fadeIn}
               initial="closed"
               animate="open"
               exit="closed"
-              className="flex md:hidden items-center justify-between pt-6 mt-4 border-t border-white/10"
+              className="flex md:hidden items-center justify-between px-8 py-6 border-t border-white/10 flex-shrink-0"
             >
               <div className="flex items-center gap-5">
                 <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconInstagram /></a>
