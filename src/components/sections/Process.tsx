@@ -5,6 +5,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader'
 import { BentoGrid } from '@/components/ui/BentoGrid'
 import { GlowCard } from '@/components/ui/spotlight-card'
 import { scaleIn } from '@/lib/animations'
+import { ClientFeedback } from '@/components/ui/testimonial'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
 const iconMap: Record<string, LucideIcon> = {
@@ -68,6 +69,10 @@ export function Process() {
             )
           })}
         </BentoGrid>
+
+        <div className="mt-32">
+          <ClientFeedback />
+        </div>
       </div>
     </section>
   )
