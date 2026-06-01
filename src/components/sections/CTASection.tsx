@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { Spotlight } from '@/components/ui/Spotlight'
 import { MagneticButton } from '@/components/ui/MagneticButton'
 import { SectionReveal } from '@/components/ui/SectionReveal'
+import { Globe } from '@/components/ui/globe'
 import { fadeUp, staggerContainer } from '@/lib/animations'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 
@@ -13,16 +14,21 @@ export function CTASection() {
     <section id="contact" className="section-padding">
       <div className="container-luxury">
         <SectionReveal>
-          <div className="relative rounded-3xl overflow-hidden">
+          <div className="relative rounded-3xl overflow-hidden bg-[#0A0A0A]">
             <Spotlight />
+            
+            <div className="absolute top-1/2 md:top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[1200px] opacity-40 pointer-events-none z-0 mix-blend-screen">
+              <Globe />
+            </div>
+
             <div
-              className="absolute inset-0"
+              className="absolute inset-0 z-0"
               style={{
                 background:
-                  'radial-gradient(ellipse at 50% 0%, rgba(201,169,98,0.12) 0%, transparent 60%), linear-gradient(180deg, rgba(26,26,26,0.8) 0%, rgba(10,10,10,0.95) 100%)',
+                  'radial-gradient(ellipse at 50% 0%, rgba(201,169,98,0.12) 0%, transparent 60%), linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.95) 100%)',
               }}
             />
-            <div className="absolute inset-0 border border-white/6 rounded-3xl pointer-events-none" />
+            <div className="absolute inset-0 border border-white/6 rounded-3xl pointer-events-none z-10" />
 
             <div className="relative z-10 px-8 py-20 md:px-16 md:py-28 lg:px-24 lg:py-32 text-center">
               <motion.div
