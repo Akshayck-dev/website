@@ -52,20 +52,50 @@ export function Header() {
             <img src={logo} alt="WebApp Orbis Logo" className="h-20 w-auto object-contain" />
           </Link>
 
-          {/* Menu toggle button */}
-          <button
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-label="Toggle menu"
-            className="relative z-[60] flex items-center justify-center w-10 h-10 text-snow"
-          >
-            {/* Animated hamburger/X */}
-            <span className="relative w-6 h-6 flex flex-col items-center justify-center gap-[5px]">
-              <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300 origin-center', open ? 'rotate-45 translate-y-[3.5px]' : '')} />
-              <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300', open ? 'opacity-0 scale-x-0' : '')} />
-              <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300 origin-center', open ? '-rotate-45 -translate-y-[3.5px]' : '')} />
-            </span>
-          </button>
+          {/* Right side: Nav Links + Hamburger */}
+          <div className="relative z-[60] flex items-center gap-6">
+            {/* Desktop Nav Links */}
+            <AnimatePresence>
+              {!open && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="hidden md:flex items-center gap-6"
+                >
+                  {NAV_LINKS.map((link) =>
+                    link.href.startsWith('/') ? (
+                      <Link key={link.label} to={link.href}
+                        className="text-base font-medium text-snow/80 hover:text-gold transition-colors duration-200">
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <a key={link.label} href={link.href}
+                        className="text-base font-medium text-snow/80 hover:text-gold transition-colors duration-200">
+                        {link.label}
+                      </a>
+                    )
+                  )}
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* Menu toggle button */}
+            <button
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-label="Toggle menu"
+              className="flex items-center justify-center w-10 h-10 text-snow"
+            >
+              {/* Animated hamburger/X */}
+              <span className="relative w-6 h-6 flex flex-col items-center justify-center gap-[5px]">
+                <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300 origin-center', open ? 'rotate-45 translate-y-[3.5px]' : '')} />
+                <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300', open ? 'opacity-0 scale-x-0' : '')} />
+                <span className={cn('block h-[1.5px] w-6 bg-snow transition-all duration-300 origin-center', open ? '-rotate-45 -translate-y-[3.5px]' : '')} />
+              </span>
+            </button>
+          </div>
         </nav>
       </header>
 
