@@ -6,11 +6,9 @@ import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { createPortal } from 'react-dom';
 import {
 	NavigationMenu,
-	NavigationMenuContent,
 	NavigationMenuItem,
 	NavigationMenuLink,
 	NavigationMenuList,
-	NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import type { LucideIcon } from 'lucide-react';
 import {
@@ -166,117 +164,6 @@ function MobileMenu({ open, children, className, ...props }: MobileMenuProps) {
 		document.body,
 	);
 }
-
-function ListItem({
-	title,
-	description,
-	icon: Icon,
-	className,
-	href,
-	...props
-}: React.ComponentProps<typeof NavigationMenuLink> & LinkItem) {
-	return (
-		<NavigationMenuLink className={cn('w-full flex flex-row gap-x-4 hover:bg-accent/30 rounded-lg p-3 transition-colors', className)} {...props} asChild>
-			<a href={href}>
-				<div className="bg-accent/40 flex aspect-square size-10 md:size-12 items-center justify-center rounded-lg border border-border/50 shadow-sm flex-shrink-0">
-					<Icon className="text-gold size-5" />
-				</div>
-				<div className="flex flex-col items-start justify-center">
-					<span className="font-medium text-snow text-base md:text-lg">{title}</span>
-					{description && <span className="text-mist text-sm line-clamp-1 mt-0.5">{description}</span>}
-				</div>
-			</a>
-		</NavigationMenuLink>
-	);
-}
-
-const productLinks: LinkItem[] = [
-	{
-		title: 'Website Builder',
-		href: '#',
-		description: 'Create responsive websites with ease',
-		icon: GlobeIcon,
-	},
-	{
-		title: 'Cloud Platform',
-		href: '#',
-		description: 'Deploy and scale apps in the cloud',
-		icon: LayersIcon,
-	},
-	{
-		title: 'Team Collaboration',
-		href: '#',
-		description: 'Tools to help your teams work better together',
-		icon: UserPlusIcon,
-	},
-	{
-		title: 'Analytics',
-		href: '#',
-		description: 'Track and analyze your website traffic',
-		icon: BarChart,
-	},
-	{
-		title: 'Integrations',
-		href: '#',
-		description: 'Connect your apps and services',
-		icon: PlugIcon,
-	},
-	{
-		title: 'API',
-		href: '#',
-		description: 'Build custom integrations with our API',
-		icon: CodeIcon,
-	},
-];
-
-const companyLinks: LinkItem[] = [
-	{
-		title: 'About Us',
-		href: '#',
-		description: 'Learn more about our story and team',
-		icon: Users,
-	},
-	{
-		title: 'Customer Stories',
-		href: '#',
-		description: 'See how we’ve helped our clients succeed',
-		icon: Star,
-	},
-	{
-		title: 'Partnerships',
-		href: '#',
-		icon: Handshake,
-		description: 'Collaborate with us for mutual growth',
-	},
-];
-
-const companyLinks2: LinkItem[] = [
-	{
-		title: 'Terms of Service',
-		href: '#',
-		icon: FileText,
-	},
-	{
-		title: 'Privacy Policy',
-		href: '#',
-		icon: Shield,
-	},
-	{
-		title: 'Refund Policy',
-		href: '#',
-		icon: RotateCcw,
-	},
-	{
-		title: 'Blog',
-		href: '#',
-		icon: Leaf,
-	},
-	{
-		title: 'Help Center',
-		href: '#',
-		icon: HelpCircle,
-	},
-];
 
 
 function useScroll(threshold: number) {

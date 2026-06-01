@@ -13,7 +13,8 @@ export function CTASection() {
     <section id="contact" className="section-padding">
       <div className="container-luxury">
         <SectionReveal>
-          <Spotlight className="relative rounded-3xl overflow-hidden">
+          <div className="relative rounded-3xl overflow-hidden">
+            <Spotlight />
             <div
               className="absolute inset-0"
               style={{
@@ -65,7 +66,7 @@ export function CTASection() {
                 </motion.div>
               </motion.div>
             </div>
-          </Spotlight>
+          </div>
         </SectionReveal>
       </div>
     </section>

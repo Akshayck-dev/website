@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import { MousePointer2, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -108,7 +108,7 @@ export const AntiGravityCanvas: React.FC = () => {
     if (!ctx) return;
 
     // Calculate Delta Time for smooth animation (optional, but good for FPS calculation)
-    const delta = time - lastTimeRef.current;
+    // const delta = time - lastTimeRef.current;
     lastTimeRef.current = time;
 
     // Clear Canvas
