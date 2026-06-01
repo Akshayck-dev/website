@@ -36,7 +36,7 @@ export function Header() {
     <>
       <header
         className={cn(
-          'fixed top-0 z-50 w-full border-b border-transparent transition-all duration-500',
+          'fixed top-0 z-[60] w-full border-b border-transparent transition-all duration-500',
           {
             'bg-obsidian/80 backdrop-blur-xl border-white/5 shadow-lg': scrolled && !open,
             'bg-transparent': open,
@@ -111,7 +111,7 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
           initial="closed"
           animate="open"
           exit="closed"
-          className="fixed inset-0 z-40 overflow-hidden"
+          className="fixed inset-0 z-[55] overflow-hidden pt-20"
           style={{ background: '#07080e' }}
         >
           {/* Blue glowing orb — bottom right */}
