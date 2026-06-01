@@ -62,28 +62,30 @@ export function HorizontalScrollCarousel({ cards, title, subtitle }: { cards: Ho
 
   return (
     <section ref={targetRef} className="relative min-h-screen bg-obsidian overflow-hidden z-10">
-      {/* Header section (Sticky on Desktop, Normal on Mobile) */}
-      <div className="md:absolute top-16 lg:top-24 left-6 md:left-12 lg:left-24 z-10 flex flex-col gap-4 mt-16 md:mt-0 px-6 md:px-0">
-        <div className="flex items-center gap-4">
-          <div className="h-[1px] w-12 bg-gold/50" />
-          <span className="text-gold tracking-[0.3em] uppercase text-sm font-medium">{subtitle || 'Our Services'}</span>
+      <div className="md:sticky md:top-0 flex flex-col md:h-screen pt-16 md:pt-24 lg:pt-32 pb-24 md:pb-12">
+        {/* Header section */}
+        <div className="z-10 flex flex-col gap-4 px-6 md:px-12 lg:px-24 flex-shrink-0 pointer-events-none">
+          <div className="flex items-center gap-4">
+            <div className="h-[1px] w-12 bg-gold/50" />
+            <span className="text-gold tracking-[0.3em] uppercase text-sm font-medium">{subtitle || 'Our Services'}</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-display text-snow max-w-4xl leading-tight">
+            {title}
+          </h2>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-display text-snow max-w-2xl leading-tight">
-          {title}
-        </h2>
-      </div>
-      
-      {/* Desktop: Horizontal Scroll, Mobile: Vertical Stack */}
-      <div className="md:sticky md:top-0 flex md:h-screen items-center md:overflow-hidden pt-12 md:pt-0 pb-24 md:pb-0">
-        <div 
-          ref={containerRef} 
-          className="flex flex-col md:flex-row gap-8 px-6 md:px-24 w-full md:w-auto mt-8 md:mt-24 lg:mt-32"
-        >
-          {cards.map((card, index) => (
-            <Card card={card} key={card.id} index={index + 1} />
-          ))}
-          {/* Spacer block at the end for desktop scroll margin */}
-          <div className="hidden md:block w-[10vw] flex-shrink-0" />
+        
+        {/* Desktop: Horizontal Scroll, Mobile: Vertical Stack */}
+        <div className="flex-1 flex items-center md:overflow-hidden mt-12 md:mt-0">
+          <div 
+            ref={containerRef} 
+            className="flex flex-col md:flex-row gap-8 px-6 md:px-12 lg:px-24 w-full md:w-auto"
+          >
+            {cards.map((card, index) => (
+              <Card card={card} key={card.id} index={index + 1} />
+            ))}
+            {/* Spacer block at the end for desktop scroll margin */}
+            <div className="hidden md:block w-[10vw] flex-shrink-0" />
+          </div>
         </div>
       </div>
     </section>
