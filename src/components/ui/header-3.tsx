@@ -38,12 +38,8 @@ export function Header() {
 		>
 			<nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-12">
 				<div className="flex items-center gap-8">
-					<Link to="/" className="hover:bg-accent/50 rounded-md p-2 transition-colors flex items-center gap-2 font-display text-2xl tracking-tight group">
-						<img src={logo} alt="WebApp Orbis Logo" className="h-12 w-auto" />
-						<div className="flex flex-col leading-none">
-							<span className="text-blue-500 font-bold group-hover:text-blue-400 transition-colors">WebApp</span>
-							<span className="text-snow group-hover:text-white transition-colors text-lg">Orbis</span>
-						</div>
+					<Link to="/" className="hover:bg-accent/50 rounded-md p-2 transition-colors flex items-center group">
+						<img src={logo} alt="WebApp Orbis Logo" className="h-20 w-auto object-contain drop-shadow-lg" />
 					</Link>
 					<NavigationMenu className="hidden md:flex">
 						<NavigationMenuList>
