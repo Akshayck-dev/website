@@ -1,99 +1,48 @@
-"use client";
-
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import {
-  Pizza,
-  Command,
-  Globe,
-  Cloud,
-  Smartphone,
-  CheckCircle,
-  LayoutDashboard,
-  Wand2,
-} from "lucide-react";
+import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, Map, Palette, Rocket, RefreshCw, type LucideIcon } from 'lucide-react'
 import { cn } from "@/lib/utils";
 
 const FEATURES = [
   {
-    id: "sustainable",
-    label: "Sustainable Sourcing",
-    icon: Pizza,
+    id: "discovery",
+    label: "Discovery",
+    icon: Search,
     image:
-      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1200",
-    description: "Ethically sourced ingredients from local farmers.",
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2670&auto=format&fit=crop",
+    description: "Deep immersion into your brand DNA, market landscape, and audience psychology.",
   },
   {
-    id: "community",
-    label: "Community Focused",
-    icon: Command,
+    id: "strategy",
+    label: "Strategy",
+    icon: Map,
     image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200",
-    description: "Building stronger bonds through shared experiences.",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2670&auto=format&fit=crop",
+    description: "Comprehensive roadmap development with clear KPIs and creative direction.",
   },
   {
-    id: "global",
-    label: "Global Reach",
-    icon: Globe,
+    id: "creation",
+    label: "Creation",
+    icon: Palette,
     image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=1200",
-    description: "Connecting visionaries across all continents.",
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2564&auto=format&fit=crop",
+    description: "Meticulous execution across design, development, and content.",
   },
   {
-    id: "award",
-    label: "Award Winning",
-    icon: CheckCircle,
+    id: "launch",
+    label: "Launch",
+    icon: Rocket,
     image:
-      "https://images.unsplash.com/photo-1578574577315-3fbeb0cecdc2?q=80&w=1200",
-    description: "Recognized excellence in design and innovation.",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop",
+    description: "Precision deployment with rigorous testing and seamless rollout.",
   },
   {
-    id: "cloud",
-    label: "Cloud Ready",
-    icon: Cloud,
+    id: "evolution",
+    label: "Evolution",
+    icon: RefreshCw,
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200",
-    description: "Scale your infrastructure with seamless ease.",
-  },
-  {
-    id: "mobile",
-    label: "Mobile First",
-    icon: Smartphone,
-    image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200",
-    description: "A world-class experience on every single device.",
-  },
-  {
-    id: "analytics",
-    label: "Real-time Analytics",
-    icon: LayoutDashboard,
-    image:
-      "https://images.unsplash.com/photo-1551288049-bbda38a10ad5?q=80&w=1200",
-    description: "Insights at your fingertips, updated in real-time.",
-  },
-  {
-    id: "security",
-    label: "Enterprise Security",
-    icon: CheckCircle,
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200",
-    description: "Bank-grade security protocols for your data.",
-  },
-  {
-    id: "magic",
-    label: "Magic Automations",
-    icon: Wand2,
-    image:
-      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200",
-    description: "Let AI handle the repetitive tasks for you.",
-  },
-  {
-    id: "local",
-    label: "Locally Owned",
-    icon: CheckCircle,
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1200",
-    description: "Supporting local businesses and creators.",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
+    description: "Continuous refinement through data analysis and strategic iteration.",
   },
 ];
 
@@ -142,11 +91,11 @@ export function FeatureCarousel() {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto md:p-8">
-      <div className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[600px] lg:aspect-video border border-border/40">
-        <div className="w-full lg:w-[40%] min-h-[350px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-[#62B2FE] ">
-          <div className="absolute inset-x-0 top-0 h-12 md:h-20 lg:h-16 bg-gradient-to-b from-[#62B2FE] via-[#62B2FE]/80 to-transparent z-40" />
-          <div className="absolute inset-x-0 bottom-0 h-12 md:h-20 lg:h-16 bg-gradient-to-t from-[#62B2FE] via-[#62B2FE]/80 to-transparent z-40" />
+    <div className="w-full mx-auto my-12">
+      <div className="relative overflow-hidden rounded-[2.5rem] lg:rounded-[4rem] flex flex-col lg:flex-row min-h-[600px] lg:aspect-video border border-white/10">
+        <div className="w-full lg:w-[40%] min-h-[350px] md:min-h-[450px] lg:h-full relative z-30 flex flex-col items-start justify-center overflow-hidden px-8 md:px-16 lg:pl-16 bg-charcoal">
+          <div className="absolute inset-x-0 top-0 h-12 md:h-20 lg:h-16 bg-gradient-to-b from-charcoal via-charcoal/80 to-transparent z-40" />
+          <div className="absolute inset-x-0 bottom-0 h-12 md:h-20 lg:h-16 bg-gradient-to-t from-charcoal via-charcoal/80 to-transparent z-40" />
           <div className="relative w-full h-full flex items-center justify-center lg:justify-start z-20">
             {FEATURES.map((feature, index) => {
               const isActive = index === currentIndex;
@@ -185,20 +134,23 @@ export function FeatureCarousel() {
                     className={cn(
                       "relative flex items-center gap-4 px-6 md:px-10 lg:px-8 py-3.5 md:py-5 lg:py-4 rounded-full transition-all duration-700 text-left group border",
                       isActive
-                        ? "bg-white text-[#62B2FE] border-white z-10"
+                        ? "bg-gold text-obsidian border-gold z-10"
                         : "bg-transparent text-white/60 border-white/20 hover:border-white/40 hover:text-white"
                     )}
                   >
                     <div
                       className={cn(
                         "flex items-center justify-center transition-colors duration-500",
-                        isActive ? "text-[#62B2FE]" : "text-white/40"
+                        isActive ? "text-obsidian" : "text-white/40 group-hover:text-white"
                       )}
                     >
-                      <Icon size={18} strokeWidth={2} />
+                      <Icon
+                        size={18}
+                        strokeWidth={2}
+                      />
                     </div>
 
-                    <span className="font-normal text-sm md:text-[15px] tracking-tight whitespace-nowrap uppercase">
+                    <span className="font-medium text-sm md:text-[15px] tracking-tight whitespace-nowrap uppercase">
                       {feature.label}
                     </span>
                   </button>
@@ -208,7 +160,7 @@ export function FeatureCarousel() {
           </div>
         </div>
 
-        <div className="flex-1 min-h-[500px] md:min-h-[600px] lg:h-full relative bg-secondary/30 flex items-center justify-center py-16 md:py-24 lg:py-16 px-6 md:px-12 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-border/20">
+        <div className="flex-1 min-h-[500px] md:min-h-[600px] lg:h-full relative bg-obsidian flex items-center justify-center py-16 md:py-24 lg:py-16 px-6 md:px-12 lg:px-10 overflow-hidden border-t lg:border-t-0 lg:border-l border-white/10">
           <div className="relative w-full max-w-[420px] aspect-[4/5] flex items-center justify-center">
             {FEATURES.map((feature, index) => {
               const status = getCardStatus(index);
@@ -234,7 +186,7 @@ export function FeatureCarousel() {
                     damping: 25,
                     mass: 0.8,
                   }}
-                  className="absolute inset-0 rounded-[2rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-background bg-background origin-center"
+                  className="absolute inset-0 rounded-[2rem] md:rounded-[2.8rem] overflow-hidden border-4 md:border-8 border-obsidian bg-obsidian origin-center shadow-2xl shadow-black/50"
                 >
                   <img
                     src={feature.image}
@@ -253,29 +205,17 @@ export function FeatureCarousel() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
-                        className="absolute inset-x-0 bottom-0 p-10 pt-32 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end pointer-events-none"
+                        className="absolute inset-x-0 bottom-0 p-10 pt-32 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent flex flex-col justify-end pointer-events-none"
                       >
-                        <div className="bg-background text-foreground px-4 py-1.5 rounded-full text-[11px] font-normal uppercase tracking-[0.2em] w-fit shadow-lg mb-3 border border-border/50">
-                          {index + 1} • {feature.label}
+                        <div className="bg-charcoal text-gold px-4 py-1.5 rounded-full text-[11px] font-medium uppercase tracking-[0.2em] w-fit shadow-lg mb-3 border border-white/10">
+                          Step 0{index + 1}
                         </div>
-                        <p className="text-white font-normal text-xl md:text-2xl leading-tight drop-shadow-md tracking-tight">
+                        <p className="text-snow font-light text-xl md:text-2xl leading-snug tracking-tight">
                           {feature.description}
                         </p>
                       </motion.div>
                     )}
                   </AnimatePresence>
-
-                  <div
-                    className={cn(
-                      "absolute top-8 left-8 flex items-center gap-3 transition-opacity duration-300",
-                      isActive ? "opacity-100" : "opacity-0"
-                    )}
-                  >
-                    <div className="w-2 h-2 rounded-full bg-white shadow-[0_0_10px_white]" />
-                    <span className="text-white/80 text-[10px] font-normal uppercase tracking-[0.3em] font-mono">
-                      Live Session
-                    </span>
-                  </div>
                 </motion.div>
               );
             })}
@@ -285,5 +225,3 @@ export function FeatureCarousel() {
     </div>
   );
 }
-
-export default FeatureCarousel;
