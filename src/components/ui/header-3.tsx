@@ -10,31 +10,7 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 } from '@/components/ui/navigation-menu';
-import type { LucideIcon } from 'lucide-react';
-import {
-	CodeIcon,
-	GlobeIcon,
-	LayersIcon,
-	UserPlusIcon,
-	Users,
-	Star,
-	FileText,
-	Shield,
-	RotateCcw,
-	Handshake,
-	Leaf,
-	HelpCircle,
-	BarChart,
-	PlugIcon,
-	Phone,
-} from 'lucide-react';
-
-type LinkItem = {
-	title: string;
-	href: string;
-	icon: LucideIcon;
-	description?: string;
-};
+import { Phone } from 'lucide-react';
 
 export function Header() {
 	const [open, setOpen] = React.useState(false);
