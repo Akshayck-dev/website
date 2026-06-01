@@ -5,7 +5,29 @@ import { MenuToggleIcon } from '@/components/ui/menu-toggle-icon';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, Mail, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
+
+const IconInstagram = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-5">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+  </svg>
+);
+
+const IconLinkedin = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-5">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+    <rect x="2" y="9" width="4" height="12"/>
+    <circle cx="4" cy="4" r="2"/>
+  </svg>
+);
+
+const IconTwitter = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="size-5">
+    <path d="M4 4l16 16M4 20L20 4"/>
+  </svg>
+);
 import logo from '../../assets/logo.png';
 
 const NAV_LINKS = [
@@ -248,9 +270,9 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
               <motion.div custom={1} variants={fadeIn} initial="closed" animate="open" exit="closed" className="flex flex-col gap-3">
                 <p className="text-gold/60 text-xs tracking-[0.25em] uppercase font-medium">Follow Us</p>
                 <div className="flex items-center gap-4">
-                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><Instagram className="size-5" /></a>
-                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><Linkedin className="size-5" /></a>
-                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><Twitter className="size-5" /></a>
+                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconInstagram /></a>
+                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconLinkedin /></a>
+                  <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconTwitter /></a>
                 </div>
               </motion.div>
 
@@ -275,9 +297,9 @@ function FullScreenMenu({ open, onClose }: { open: boolean; onClose: () => void 
               className="flex md:hidden items-center justify-between pt-6 mt-4 border-t border-white/10"
             >
               <div className="flex items-center gap-5">
-                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><Instagram className="size-5" /></a>
-                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><Linkedin className="size-5" /></a>
-                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><Twitter className="size-5" /></a>
+                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconInstagram /></a>
+                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconLinkedin /></a>
+                <a href="#" className="text-snow/40 hover:text-gold transition-colors"><IconTwitter /></a>
               </div>
               <Link
                 to="/contact"
