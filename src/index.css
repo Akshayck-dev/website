@@ -22,7 +22,7 @@
   --color-border: rgba(255, 255, 255, 0.1);
 
   /* Typography */
-  --font-display: "Instrument Serif", Georgia, serif;
+  --font-display: "Times New Roman", Times, serif;
   --font-sans: "Inter", system-ui, sans-serif;
 
   /* Spacing Scale */
