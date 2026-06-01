@@ -37,11 +37,11 @@ export function Header() {
       <header
         className={cn(
           'fixed top-0 z-[60] w-full transition-all duration-500',
-          open
-            ? 'bg-transparent border-transparent'
-            : 'border-b border-white/10 shadow-md backdrop-blur-xl'
+          open || !scrolled
+            ? 'bg-transparent border-transparent shadow-none'
+            : 'border-b border-gold/20 backdrop-blur-xl shadow-lg'
         )}
-        style={!open ? { backgroundColor: 'rgba(6, 7, 12, 0.95)' } : {}}
+        style={!open && scrolled ? { backgroundColor: 'rgba(0, 0, 0, 0.85)', boxShadow: '0 1px 30px rgba(0,0,0,0.8)' } : {}}
       >
         <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-12">
           {/* Logo */}
@@ -50,7 +50,7 @@ export function Header() {
             onClick={() => setOpen(false)}
             className="relative z-[60] hover:opacity-80 transition-opacity duration-300 flex items-center"
           >
-            <img src={logo} alt="WebApp Orbis Logo" className="h-16 w-auto object-contain drop-shadow-lg" />
+            <img src={logo} alt="WebApp Orbis Logo" className="h-20 w-auto object-contain" />
           </Link>
 
           {/* Menu toggle button */}
