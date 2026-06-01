@@ -1,80 +1,78 @@
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
-import { Spotlight } from '@/components/ui/Spotlight'
-import { MagneticButton } from '@/components/ui/MagneticButton'
-import { SectionReveal } from '@/components/ui/SectionReveal'
-import { Globe } from '@/components/ui/globe'
-import { fadeUp, staggerContainer } from '@/lib/animations'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
+import React from 'react';
+import { motion } from 'framer-motion';
+
+const Sparkles = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+    <path d="M5 3v4" />
+    <path d="M19 17v4" />
+    <path d="M3 5h4" />
+    <path d="M17 19h4" />
+  </svg>
+);
 
 export function CTASection() {
-  const reducedMotion = useReducedMotion()
-
   return (
-    <section id="contact" className="section-padding">
-      <div className="container-luxury">
-        <SectionReveal>
-          <div className="relative rounded-3xl overflow-hidden bg-[#0A0A0A]">
-            <Spotlight />
-            
-            <div className="absolute top-1/2 md:top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] md:w-[1200px] opacity-40 pointer-events-none z-0 mix-blend-screen">
-              <Globe />
+    <section className="relative py-24 bg-obsidian overflow-hidden">
+      {/* Floating Graphic Element */}
+      <motion.div 
+        animate={{
+          y: [0, -20, 0],
+          rotate: [0, 5, 0]
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute right-[-5%] top-[10%] w-[450px] h-[450px] bg-gradient-to-br from-gold/20 to-gold-dim/10 rounded-full blur-[90px] pointer-events-none"
+      />
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="w-full rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl p-8 sm:p-12 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+          
+          {/* Left Text Block */}
+          <div className="max-w-xl">
+            <div className="flex items-center gap-2 text-gold font-medium text-sm mb-4">
+              <Sparkles className="w-4 h-4 animate-pulse" />
+              <span>Unleash True Performance</span>
             </div>
-
-            <div
-              className="absolute inset-0 z-0"
-              style={{
-                background:
-                  'radial-gradient(ellipse at 50% 0%, rgba(201,169,98,0.12) 0%, transparent 60%), linear-gradient(180deg, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.95) 100%)',
-              }}
-            />
-            <div className="absolute inset-0 border border-white/6 rounded-3xl pointer-events-none z-10" />
-
-            <div className="relative z-10 px-8 py-20 md:px-16 md:py-28 lg:px-24 lg:py-32 text-center">
-              <motion.div
-                variants={staggerContainer}
-                initial={reducedMotion ? 'visible' : 'hidden'}
-                whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
-              >
-                <motion.span
-                  variants={fadeUp}
-                  className="inline-block text-xs uppercase tracking-[0.25em] text-gold font-medium mb-6"
-                >
-                  Ready to begin?
-                </motion.span>
-
-                <motion.h2
-                  variants={fadeUp}
-                  className="font-display text-4xl md:text-5xl lg:text-6xl text-snow tracking-tight leading-[1.1] mb-6 max-w-3xl mx-auto"
-                >
-                  Let&apos;s create something{' '}
-                  <span className="italic gradient-gold">extraordinary</span>{' '}
-                  together.
-                </motion.h2>
-
-                <motion.p
-                  variants={fadeUp}
-                  className="text-mist text-lg md:text-xl max-w-xl mx-auto mb-10 md:mb-12"
-                >
-                  Every great brand story starts with a conversation. Tell us about
-                  your vision, and we&apos;ll show you what&apos;s possible.
-                </motion.p>
-
-                <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-4">
-                  <MagneticButton variant="primary" size="lg">
-                    Schedule a Consultation
-                    <ArrowRight size={18} />
-                  </MagneticButton>
-                  <MagneticButton variant="secondary" size="lg">
-                    View Case Studies
-                  </MagneticButton>
-                </motion.div>
-              </motion.div>
-            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-snow mb-4 leading-tight">
+              Ready to take full control of your stack?
+            </h2>
+            <p className="text-mist font-normal leading-relaxed text-sm sm:text-base">
+              Deploy serverless components natively, scale instantly to global edges, and track data flow architecture with a centralized platform engine.
+            </p>
           </div>
-        </SectionReveal>
+
+          {/* Right Action Block */}
+          <div className="w-full md:w-auto flex flex-col sm:flex-row md:flex-col gap-3.5 shrink-0 sm:w-full md:w-64">
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full px-6 py-4 rounded-xl font-semibold bg-gradient-to-r from-gold to-gold-dim text-obsidian shadow-[0_4px_20px_rgba(201,169,98,0.3)] hover:opacity-95 transition-all text-center"
+            >
+              Get Started for Free
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.01, backgroundColor: 'rgba(255,255,255,0.03)' }}
+              whileTap={{ scale: 0.99 }}
+              className="w-full px-6 py-4 rounded-xl font-medium border border-white/10 text-mist hover:text-snow transition-colors text-center bg-black/20"
+            >
+              View Pricing Matrix
+            </motion.button>
+          </div>
+
+        </div>
       </div>
     </section>
-  )
+  );
 }
