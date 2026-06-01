@@ -24,10 +24,11 @@ export function Navbar() {
         <nav className="container-luxury flex items-center justify-between relative z-50">
           <a
             href="/"
-            className="font-display text-2xl md:text-3xl text-snow tracking-tight hover:text-gold transition-colors duration-300"
+            className="font-display text-2xl md:text-3xl tracking-tight transition-colors duration-300 flex items-center gap-2 group"
             onClick={() => setMenuOpen(false)}
           >
-            Aether
+            <span className="text-blue-500 font-bold group-hover:text-blue-400 transition-colors">WebApp</span>
+            <span className="text-snow group-hover:text-white transition-colors">Orbis</span>
           </a>
 
           {/* Desktop Links (Hidden when menu is open) */}

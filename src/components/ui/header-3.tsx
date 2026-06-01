@@ -36,8 +36,9 @@ export function Header() {
 		>
 			<nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-12">
 				<div className="flex items-center gap-8">
-					<a href="#" className="hover:bg-accent/50 rounded-md p-2 transition-colors">
-						<WordmarkIcon className="h-5 text-snow" />
+					<a href="#" className="hover:bg-accent/50 rounded-md p-2 transition-colors flex items-center gap-2 font-display text-2xl tracking-tight group">
+						<span className="text-blue-500 font-bold group-hover:text-blue-400 transition-colors">WebApp</span>
+						<span className="text-snow group-hover:text-white transition-colors">Orbis</span>
 					</a>
 					<NavigationMenu className="hidden md:flex">
 						<NavigationMenuList>
