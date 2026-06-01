@@ -42,14 +42,19 @@ export function Header() {
             : 'bg-black/40 backdrop-blur-md border-b border-white/10 shadow-lg'
         )}
       >
-        <nav className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-6 lg:px-12">
+        <nav className="mx-auto flex h-24 w-full max-w-7xl items-center justify-between px-6 lg:px-12">
           {/* Logo */}
           <Link
             to="/"
             onClick={() => setOpen(false)}
             className="relative z-[60] hover:opacity-80 transition-opacity duration-300 flex items-center"
           >
-            <img src={logo} alt="WebApp Orbis Logo" className="h-20 w-auto object-contain" />
+            <img 
+              src={logo} 
+              alt="WebApp Orbis Logo" 
+              className="h-24 md:h-32 w-auto object-contain mix-blend-screen scale-[1.1] origin-left" 
+              style={{ filter: 'contrast(1.2) brightness(1.1)' }}
+            />
           </Link>
 
           {/* Right side: Nav Links + Hamburger */}
