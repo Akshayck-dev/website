@@ -8,7 +8,7 @@ import { CTASection } from '@/components/sections/CTASection'
 
 export function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <main className="w-full min-h-screen">
       <Hero />
       <HomeServices />
       <WhyChooseUs />
@@ -16,6 +16,6 @@ export function Home() {
       <FeaturedWork />
       <TestimonialsSection />
       <CTASection />
-    </div>
+    </main>
   )
 }

@@ -42,17 +42,26 @@ export function HorizontalScrollCarousel({ cards, title, subtitle }: { cards: Ho
         start: "top top",
         end: () => `+=${getScrollAmount() * -1}`,
         pin: true,
+        pinSpacing: true,
         animation: tween,
         scrub: 1,
         invalidateOnRefresh: true,
       });
     }, targetRef);
 
-    return () => ctx.revert();
+    // Refresh ScrollTrigger after a slight delay to ensure all layouts (like images) are fully computed
+    const timeout = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+      ctx.revert();
+    };
   }, []);
 
   return (
-    <section ref={targetRef} className="relative min-h-screen bg-obsidian overflow-hidden">
+    <section ref={targetRef} className="relative min-h-screen bg-obsidian overflow-hidden z-10">
       {/* Header section (Sticky on Desktop, Normal on Mobile) */}
       <div className="md:absolute top-16 lg:top-24 left-6 md:left-12 lg:left-24 z-10 flex flex-col gap-4 mt-16 md:mt-0 px-6 md:px-0">
         <div className="flex items-center gap-4">
