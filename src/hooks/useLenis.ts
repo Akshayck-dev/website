@@ -1,6 +1,12 @@
 import { useEffect } from 'react'
 import Lenis from 'lenis'
 import { useReducedMotion } from './useReducedMotion'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 export function useLenis() {
   const reducedMotion = useReducedMotion()
@@ -17,16 +23,19 @@ export function useLenis() {
 
     document.documentElement.classList.add('lenis', 'lenis-smooth')
 
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
+    lenis.on('scroll', ScrollTrigger.update)
+
+    const ticker = (time: number) => {
+      lenis.raf(time * 1000)
     }
 
-    requestAnimationFrame(raf)
+    gsap.ticker.add(ticker)
+    gsap.ticker.lagSmoothing(0)
 
     return () => {
       lenis.destroy()
       document.documentElement.classList.remove('lenis', 'lenis-smooth')
+      gsap.ticker.remove(ticker)
     }
   }, [reducedMotion])
 }

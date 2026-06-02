@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { aboutParallaxSections } from '@/data/content'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { MagneticButton } from '@/components/ui/MagneticButton'
-import { SplitText } from '@/components/ui/SplitText'
+import { BlurTextAnimation } from '@/components/ui/blur-text-animation'
 
 const IMG_PADDING = 12
 
@@ -105,13 +105,10 @@ function OverlayCopy({ subheading, heading }: OverlayCopyProps) {
       <p className="mb-4 text-xs uppercase tracking-[0.3em] text-gold font-medium">
         {subheading}
       </p>
-      <SplitText
+      <BlurTextAnimation
         text={heading}
         className="font-display text-5xl tracking-tight md:text-6xl lg:text-8xl drop-shadow-2xl"
-        delay={50}
-        duration={1}
         tag="p"
-        textAlign="left"
       />
     </motion.div>
   )
@@ -142,13 +139,10 @@ export function ParallaxContentBlock({
       {/* Left Column: Sticky Title */}
       <div className="col-span-1 md:col-span-5 relative">
         <div className="md:sticky md:top-32 flex flex-col gap-6">
-          <SplitText
+          <BlurTextAnimation
             text={title}
             className="font-display text-4xl md:text-5xl lg:text-6xl text-snow leading-tight tracking-tight"
-            delay={50}
-            duration={1}
             tag="h2"
-            textAlign="left"
           />
           {showCta && (
             <a href={ctaHref} className="hidden md:inline-block w-fit">

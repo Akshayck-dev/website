@@ -1,7 +1,6 @@
 import { SparklesCore } from '../ui/sparkles'
 import { Button } from '../ui/button'
-import { SplitText } from '../ui/SplitText'
-
+import { BlurTextAnimation } from '../ui/blur-text-animation'
 export function Hero() {
   return (
     <section id="home" className="relative w-full min-h-screen bg-obsidian flex flex-col items-center overflow-hidden pt-24">
@@ -21,11 +20,9 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-20 max-w-5xl mx-auto px-6 text-center space-y-6 flex flex-col items-center my-auto">
         
-        <SplitText
+        <BlurTextAnimation
           text="Build Smarter Digital Experiences."
           className="md:text-7xl text-5xl lg:text-8xl font-bold text-snow tracking-tight leading-tight"
-          delay={50}
-          duration={1}
           tag="h1"
         />
         

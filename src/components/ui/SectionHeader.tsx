@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react'
 import { cn } from '../../lib/utils'
 import { SectionReveal } from './SectionReveal'
-import { SplitText } from './SplitText'
+import { BlurTextAnimation } from './blur-text-animation'
 
 interface SectionHeaderProps {
   label?: string
@@ -33,16 +33,13 @@ export function SectionHeader({
             {label}
           </span>
         )}
-        <SplitText
+        <BlurTextAnimation
           text={title}
           className={cn(
             "font-display text-4xl md:text-5xl lg:text-6xl text-snow tracking-tight leading-[1.1] mb-6",
             align === 'center' ? '' : 'text-left'
           )}
-          delay={50}
-          duration={1}
           tag="h2"
-          textAlign={align === 'center' ? 'center' : 'left'}
         />
         {description && (
           <p className="text-mist text-lg md:text-xl leading-relaxed">{description}</p>
