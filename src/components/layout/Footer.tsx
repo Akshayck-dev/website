@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 md:mb-20">
           <SectionReveal className="lg:col-span-4">
             <a href="#" className="font-display text-3xl text-snow tracking-tight inline-block mb-6">
-              Aether
+              MBWS
             </a>
             <p className="text-mist leading-relaxed mb-8 max-w-sm">
               A luxury digital marketing agency crafting premium brand experiences
@@ -87,7 +87,7 @@ export function Footer() {
         <SectionReveal delay={0.25}>
           <div className="pt-8 border-t border-white/6 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-mist/60">
-              &copy; {new Date().getFullYear()} Aether Agency. All rights reserved.
+              &copy; {new Date().getFullYear()} MBWS Agency. All rights reserved.
             </p>
             <div className="flex items-center gap-8">
               <a href="#" className="text-sm text-mist/60 hover:text-snow transition-colors">

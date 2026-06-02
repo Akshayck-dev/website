@@ -144,7 +144,7 @@ export const serviceCarouselSteps = [
 ] as const
 
 export const serviceCarouselImages = {
-  alt: 'Aether agency services',
+  alt: 'MBWS agency services',
   step1img1:
     'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=1740&auto=format&fit=crop',
   step1img2:
@@ -245,7 +245,7 @@ export const testimonials = [
   {
     id: 1,
     quote:
-      'Aether transformed our digital presence from ordinary to extraordinary. The attention to detail and strategic thinking exceeded every expectation.',
+      'MBWS transformed our digital presence from ordinary to extraordinary. The attention to detail and strategic thinking exceeded every expectation.',
     author: 'Isabella Chen',
     role: 'Chief Marketing Officer',
     company: 'Lumière Paris',
@@ -255,7 +255,7 @@ export const testimonials = [
   {
     id: 2,
     quote:
-      'Working with Aether felt like having an extension of our executive team. They understand luxury brands at a level few agencies can match.',
+      'Working with MBWS felt like having an extension of our executive team. They understand luxury brands at a level few agencies can match.',
     author: 'Marcus Sterling',
     role: 'Founder & CEO',
     company: 'Verde Estate',
@@ -265,7 +265,7 @@ export const testimonials = [
   {
     id: 3,
     quote:
-      'The ROI speaks for itself. Aether delivered a platform that not only looks stunning but drives real, measurable business outcomes.',
+      'The ROI speaks for itself. MBWS delivered a platform that not only looks stunning but drives real, measurable business outcomes.',
     author: 'Alexandra Wright',
     role: 'Managing Partner',
     company: 'Atlas Private',
@@ -286,14 +286,14 @@ export const testimonials = [
 
 export const columnTestimonials = [
   {
-    text: 'Aether transformed our digital presence from ordinary to extraordinary. The attention to detail exceeded every expectation.',
+    text: 'MBWS transformed our digital presence from ordinary to extraordinary. The attention to detail exceeded every expectation.',
     image:
       'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face',
     name: 'Isabella Chen',
     role: 'CMO, Lumière Paris',
   },
   {
-    text: 'Working with Aether felt like having an extension of our executive team. They understand luxury brands at a level few agencies can match.',
+    text: 'Working with MBWS felt like having an extension of our executive team. They understand luxury brands at a level few agencies can match.',
     image:
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face',
     name: 'Marcus Sterling',
@@ -307,7 +307,7 @@ export const columnTestimonials = [
     role: 'Managing Partner, Atlas Private',
   },
   {
-    text: 'Aether delivered a platform that not only looks stunning but drives real, measurable business outcomes. The ROI speaks for itself.',
+    text: 'MBWS delivered a platform that not only looks stunning but drives real, measurable business outcomes. The ROI speaks for itself.',
     image:
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face',
     name: 'James Hartley',
@@ -328,7 +328,7 @@ export const columnTestimonials = [
     role: 'Head of Digital, Four Seasons',
   },
   {
-    text: 'Our online presence and conversions improved dramatically. Aether understood our needs and enhanced every touchpoint of our brand.',
+    text: 'Our online presence and conversions improved dramatically. MBWS understood our needs and enhanced every touchpoint of our brand.',
     image:
       'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face',
     name: 'Thomas Reid',
@@ -342,7 +342,7 @@ export const columnTestimonials = [
     role: 'Creative Director, Bottega Veneta',
   },
   {
-    text: 'Using Aether, our brand perception and customer engagement significantly improved — boosting performance across all metrics.',
+    text: 'Using MBWS, our brand perception and customer engagement significantly improved — boosting performance across all metrics.',
     image:
       'https://images.unsplash.com/photo-1539571196387-b0f063784573?w=80&h=80&fit=crop&crop=face',
     name: 'Daniel Okonkwo',
@@ -401,7 +401,7 @@ export const trustedByParallaxSections = [
     contentTitle: 'Brands that define excellence',
     paragraphs: [
       'From haute couture to hospitality, we partner with organizations that set the standard in their categories.',
-      'Our clients choose Aether because we understand the nuances of premium positioning and the expectations of discerning audiences.',
+      'Our clients choose MBWS because we understand the nuances of premium positioning and the expectations of discerning audiences.',
     ],
     showCta: false,
   },

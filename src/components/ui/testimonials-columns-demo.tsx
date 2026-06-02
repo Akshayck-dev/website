@@ -27,7 +27,7 @@ export function TestimonialsColumnsDemo() {
             What our partners say
           </h2>
           <p className="text-center mt-5 text-mist">
-            See what our clients have to say about working with Aether.
+            See what our clients have to say about working with MBWS.
           </p>
         </motion.div>
 

@@ -26,7 +26,7 @@ export function About() {
               viewport={{ once: true, margin: '-80px' }}
               className="text-xl md:text-2xl text-pearl leading-relaxed font-display"
             >
-              Aether is a collective of strategists, designers, and technologists
+              MBWS is a collective of strategists, designers, and technologists
               united by a singular obsession: creating digital experiences worthy of
               the world&apos;s most exceptional brands.
             </motion.p>
