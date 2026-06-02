@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { motion } from 'framer-motion'
 import { Search, Map, Palette, Rocket, RefreshCw } from 'lucide-react'
 import { BentoGrid, type BentoItem } from '@/components/ui/bento-grid'

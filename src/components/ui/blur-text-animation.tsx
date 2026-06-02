@@ -13,7 +13,7 @@ interface BlurTextAnimationProps {
   words?: WordData[];
   className?: string;
   animationDelay?: number;
-  tag?: keyof JSX.IntrinsicElements;
+  tag?: React.ElementType;
   as?: React.ElementType;
 }
 
@@ -26,8 +26,8 @@ export function BlurTextAnimation({
   as
 }: BlurTextAnimationProps) {
   const [isAnimating, setIsAnimating] = useState(false);
-  const animationTimeoutRef = useRef<NodeJS.Timeout>();
-  const resetTimeoutRef = useRef<NodeJS.Timeout>();
+  const animationTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const resetTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const textWords = useMemo(() => {
     if (words) return words;
@@ -83,7 +83,7 @@ export function BlurTextAnimation({
     };
   }, [textWords, animationDelay]);
 
-  const Component = as || Tag;
+  const Component = (as || Tag) as React.ElementType;
 
   return (
     <Component className={className}>

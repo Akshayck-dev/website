@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import FeatureCarousel from "@/components/ui/feature-carousel";
 

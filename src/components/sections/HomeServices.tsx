@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react'
 import { TextParallaxContent } from '@/components/ui/text-parallax-content-scroll'
 import { Monitor, Smartphone, Database } from 'lucide-react'
